@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/explore.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Gaegu' rel='stylesheet'>
+    <script src="{{  url_for('static', filename='js/script.js')}}" async></script>
+    <title>Explore</title>
+</head>
+<body>
+    <div class="page-top">
+        <div class="navbar">
+            <div class="logo">
+                <a href="#page-top" class="wg">WanderGuide</a>
+            </div>
+            <div class="profile">
+                <a href="/profile"><img src="/static/images/profile.png" alt="profile icon"></a>
+            </div>
+        </div>
+        <div class="container mb-3">
+            <div class="container-body">
+                <p class="search">Search for an itinerary</p>
+                <input type="text" class="form-control custom-input" id="searchInput" name="search" placeholder="destination (city and/or country)" oninput="search()">
+                <p>or</p>
+                <a href="/create" class="btn btn-primary mb-3">Create your own!</a>
+            </div>
+        </div>
+        <a href="https://www.freepik.com/free-photo/park-falls-rural-trees-paradise-vacation_1251789.htm?query=cascade%20boat%20clean%20china%20natural%20rural#from_view=detail_alsolike#position=4&query=cascade%20boat%20clean%20china%20natural%20rural" class="bottom-link" target="_blank">image by 4045 on freepik</a>
+    </div>
+    <div class="all_trips" id="all_trips">
+        {% for one_trip in all_trips %}
+            <div class="card" style="width: 18rem;">
+                <div class="header">
+                    <h5 class="card-title">{{one_trip.city}}, {{one_trip.country}}</h5>
+                    {% if one_trip.id in my_trips_ids %}
+                        <p><a href="/edit_trip/{{one_trip.id}}">edit</a></p>
+                    {% elif one_trip.id not in my_trips_ids %}
+                        {% if one_trip.id in saved_trips_ids %}
+                            <img src="/static/images/red_heart.png" alt="heart" onclick="unsaveTrip(this, '{{one_trip.id}}')">
+                        {% elif one_trip.id not in saved_trips_ids %}
+                            <img src="/static/images/empty_heart.png" alt="heart" onclick="saveTrip(this, '{{one_trip.id}}')">
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <div class="header2">
+                    <p>{{one_trip.length_of_stay}} days</p>
+                    <div class="people_info">
+                        {% if one_trip.user.id == user_id %}
+                            <p>created by me</p>
+                            <p>saved by {{one_trip.saved_by}}</p>
+                        {% else %}
+                            <p>created by {{one_trip.user.first_name}}</p>
+                            <p>saved by {{one_trip.saved_by}}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <img src="/uploads/{{ one_trip.cover_photo }}" class="card-img-top cover_photo" alt="cover_photo">
+                    <p class="card-text">{{one_trip.itinerary_description}}</p>
+                    <!-- <p class="interests">{{one_trip.interests}}</p> -->
+                    <div class="view-itinerary">
+                        <a href="/view/{{one_trip.id}}" class="btn btn-primary">View Itinerary</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

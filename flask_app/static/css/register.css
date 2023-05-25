@@ -1,0 +1,56 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    background-image: url("/static/images/sunset.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 450px;
+    padding: 10px;
+    background-color: coral !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.content {
+    height: 90%;
+}
+
+.alert {
+    border: 1px solid #fbced2;
+    background-color: #fbc3c9 !important;
+    color: #691d25 !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8%;
+}
+
+form div {
+    width: 100%;
+}
+
+.custom-input:focus {
+    border-color: rgb(241, 146, 112);
+    box-shadow: 0 0 10px rgb(244, 77, 16);
+}
+
+button {
+    border: 1px solid white !important;
+    background-color: white !important;
+    color: rgb(248, 102, 48) !important;
+    padding: 8px 25px !important;
+    margin-top: 10px;
+}

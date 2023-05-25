@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/profile.css')}}">
+    <link href='https://fonts.googleapis.com/css?family=Gaegu' rel='stylesheet'>
+    <script src="{{  url_for('static', filename='js/script.js')}}" async></script>
+    <title>Profile</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/explore" class="wg">WanderGuide</a>
+        </div>
+        <div class="logout">
+            <a href="/logout">log out</a>
+        </div>
+    </div>
+    <div class="saved_itineraries">
+        <h2>Saved Itineraries</h2>
+        {% if not one_user.saved_trips %} 
+            <p class="message">You haven't saved any itineraries yet... <a href="/explore">browse some here!</a></p>
+        {% endif %}
+        <div class="all_saved">
+            {% for one_saved in one_user.saved_trips %} 
+                <div class="card" style="width: 18rem;">
+                    <div class="header">
+                        <h5 class="card-title">{{one_saved.city}}, {{one_saved.country}}</h5>
+                        <img src="/static/images/red_heart.png" alt="heart" onclick="unsaveTrip(this, '{{one_saved.id}}')">
+                    </div>
+                    <div class="header2">
+                        <p>{{one_saved.length_of_stay}} days</p>
+                        <div class="people_info">
+                            <p>created by {{one_saved.user.first_name}}</p>
+                            <p>saved by {{one_saved.saved_by}}</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <img src="/uploads/{{ one_saved.cover_photo }}" class="card-img-top cover_photo" alt="cover_photo">
+                        <p class="card-text">{{one_saved.itinerary_description}}</p>
+                        <!-- <p class="interests">{{one_saved.interests}}</p> -->
+                        <div class="view-itinerary">
+                            <a href="/view/{{one_saved.id}}" class="btn btn-primary">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="my_itineraries">
+        <h2>My Itineraries</h2>
+        {% if not user.trips %} 
+            <p class="message">You haven't created any itineraries yet... get started now!</p>
+        {% endif %}
+        <a href="/create" class="btn btn-primary mb-3 create">Create an Itinerary</a>
+        <div class="all_mine">
+            {% for one_trip in user.trips %} 
+                <div class="card" style="width: 18rem;">
+                    <div class="header">
+                        <h5 class="card-title">{{one_trip.city}}, {{one_trip.country}}</h5>
+                        <p><a href="/edit_trip/{{one_trip.id}}">edit</a></p>
+                    </div>
+                    <div class="header2">
+                        <p>{{one_trip.length_of_stay}} days</p>
+                        <div class="people_info">
+                            <p>created by me</p>
+                            <p>saved by {{one_trip.saved_by}}</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <img src="/uploads/{{ one_trip.cover_photo }}" class="card-img-top cover_photo" alt="cover_photo">
+                        <p class="card-text">{{one_trip.itinerary_description}}</p>
+                        <!-- <p class="interests">{{one_trip.interests}}</p> -->
+                        <div class="view-itinerary">
+                            <a href="/view/{{one_trip.id}}" class="btn btn-primary">View Itinerary</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
