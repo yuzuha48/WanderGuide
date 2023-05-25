@@ -1,43 +1,42 @@
 async function saveDays(event, trip_id) {
     event.preventDefault();
-    let formData = new FormData();
+    resetFlashMessage();
+    let form_json = {};
     let forms = document.getElementsByClassName("day_form");
 
     Array.from(forms).forEach((form, index) => {
         let dayData = new FormData(form);
-        formData.append(`form${index+1}`, dayData);
+        form_json[index] = {};
+        for (let [key, value] of dayData.entries()) {
+            form_json[index][key] = value;
+        }
     });
 
     const response = await fetch(`/add_days/${trip_id}`, {
             method: 'POST', 
-            body: formData
+            body: JSON.stringify(form_json), 
+            headers: {
+                'Content-Type': 'application/json'
+            }
         }); 
 
     const data = await response.json();
-    if (data.message == "Error") {
+    if ("errors" in data) {
         resetFlashMessage();
-        showFlashMessage('Description of Day, Location, and/or Activity must be at least 2 characters.');
+        let errorsHTML = ""; 
+        for(let error of Object.values(data.errors)) {
+            errorsHTML += `<p>${error}</p>`;
+        }
+        showFlashMessage(errorsHTML);
         window.location.href = "#top";
     }
-    else if (data.message == "Day Added") {
+    else if ("success" in data && data.success) {
         window.location.href = 'http://127.0.0.1:5001/profile';
     }
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         console.log(data.message);
-    //         if (data.message == "Error") {
-    //             resetFlashMessage();
-    //             showFlashMessage('Description of Day, Location, and/or Activity must be at least 2 characters.');
-    //             window.location.href = "#top";
-    //         }
-    //         else if (data.message == "Day Added") {
-    //             window.location.href = 'http://127.0.0.1:5001/profile';
-    //         }
-    //     })
-    //     .catch(error => {
-    //         console.error(error);
-    //     }); 
-    // });
+    else {
+        showFlashMessage("Something went wrong. Please try again.");
+        window.location.href = "#top";
+    }
 }
 
 function resetFlashMessage() {
@@ -53,7 +52,7 @@ function showFlashMessage(message) {
     let flashMessagesContainer = document.getElementById('errorMessages');
     flashMessagesContainer.classList.remove("hidden");
     let flashMessageElement = document.createElement('p');
-    flashMessageElement.textContent = message;
+    flashMessageElement.innerHTML = message;
     flashMessagesContainer.appendChild(flashMessageElement);
 }
 
@@ -117,31 +116,46 @@ function unsaveTrip(image, trip_id) {
     location.reload();
 }
 
-function updateDays(event) {
+async function updateDays(event) {
     event.preventDefault();
+    resetFlashMessage();
+    let form_json = {};
     let forms = document.getElementsByClassName("day_form");
-    Array.from(forms).forEach(form => {
+
+    Array.from(forms).forEach((form) => {
         let day_id = form.querySelector(".day_id").innerText
         let dayData = new FormData(form);
-        fetch(`/edit_days/${day_id}`, {
-            method: 'POST', 
-            body: dayData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.message == "Error") {
-                resetFlashMessage();
-                showFlashMessage('Description of Day, Location, and/or Activity must be at least 2 characters.');
-                window.location.href = "#top";
-            }
-            else {
-                window.location.href = 'http://127.0.0.1:5001/profile';
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
+        form_json[day_id] = {};
+        for (let [key, value] of dayData.entries()) {
+            form_json[day_id][key] = value;
+        }
     });
+
+    const response = await fetch(`/edit_days`, {
+            method: 'POST', 
+            body: JSON.stringify(form_json), 
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }); 
+
+    const data = await response.json();
+    if ("errors" in data) {
+        resetFlashMessage();
+        let errorsHTML = ""; 
+        for(let error of Object.values(data.errors)) {
+            errorsHTML += `<p>${error}</p>`;
+        }
+        showFlashMessage(errorsHTML);
+        window.location.href = "#top";
+    }
+    else if ("success" in data && data.success) {
+        window.location.href = 'http://127.0.0.1:5001/profile';
+    }
+    else {
+        showFlashMessage("Something went wrong. Please try again.");
+        window.location.href = "#top";
+    }
 }
 
 function search() {

@@ -16,21 +16,29 @@ def days_page(trip_id):
 
 @app.route('/add_days/<int:trip_id>', methods=['POST'])
 def create_days(trip_id):
-    if len(request.form) < 1:
-        return jsonify({"message": "Error"})
+    json_data = request.get_json()
+    if not json_data:
+        return jsonify({
+            "status": "error", 
+            "message": "No JSON data provided.",
+            "errors": {"json": "No JSON data provided"}
+        })
+    for day_data in json_data.values():
+        errors = day.Day.validate_day(day_data)
+        if len(errors) > 0:
+            return jsonify({
+                "status": "error",
+                "message": "Invalid data.",
+                "errors": errors
+            })
+    for day_data in json_data.values():
+        day.Day.save(day_data, trip_id)
 
-    for form_key in request.form.keys():
-        print("start of print ---------------------")
-        print(request.form[form_key][2])
-        print("end of print ---------------------")
-        if not day.Day.validate_day(request.form[form_key]):
-            session['day_data'] = request.form
-            return jsonify({"message": "Error"})
-
-    for form_key in request.form.keys():
-        day.Day.save(request.form[form_key], trip_id)
-        session.pop('day_data', None)
-    return jsonify({"message": "Day Added"})
+    return jsonify({
+        "success": True,
+        "status": "success",
+        "message": "Days successfully added."
+    })
 
 @app.route('/edit_days/<int:trip_id>')
 def edit_days_page(trip_id):
@@ -42,11 +50,28 @@ def edit_days_page(trip_id):
     coordinates = trip.Trip.get_coordinates(trip_id)
     return render_template("edit_days.html", trip=one_trip, user=one_user, api_key=api_key, coordinates=coordinates)
 
-@app.route('/edit_days/<int:day_id>', methods=['POST'])
-def edit_days(day_id):
-    if not day.Day.validate_day(request.form):
-        session['day_data'] = request.form
-        return jsonify({"message": "Error"})
-    day.Day.edit(day_id, request.form)
-    session.pop('day_data', None)
-    return jsonify({"message": "Updated"})
+@app.route('/edit_days', methods=['POST'])
+def edit_days():
+    json_data = request.get_json()
+    if not json_data:
+        return jsonify({
+            "status": "error", 
+            "message": "No JSON data provided.",
+            "errors": {"json": "No JSON data provided"}
+        })
+    for day_id, day_data in json_data.items():
+        errors = day.Day.validate_day(day_data)
+        if len(errors) > 0:
+            return jsonify({
+                "status": "error",
+                "message": "Invalid data.",
+                "errors": errors
+            })
+    for day_id, day_data in json_data.items():
+        day.Day.edit(day_id, day_data)
+
+    return jsonify({
+        "success": True,
+        "status": "success",
+        "message": "Days successfully added."
+    })

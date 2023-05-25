@@ -56,11 +56,14 @@ class Day:
 
     @staticmethod
     def validate_day(data):
-        is_valid = True 
-        if len(data['day_theme']) < 2 or len(data['location']) < 2 or len(data['activity']) < 2:
-            flash("Description of Day, Location, and/or Activity must be at least 2 characters.", "create_day")
-            is_valid = False 
-        return is_valid
+        errors = {}
+        if len(data['day_theme']) < 2:
+            errors['day_theme'] = "Description of Day must be at least 2 characters."
+        if len(data['location']) < 2:
+            errors['location'] = "Location must be at least 2 characters."
+        if len(data['activity']) < 2:
+            errors['activity'] = "Activity must be at least 2 characters."
+        return errors
 
     @classmethod
     def edit(cls, day_id, day_data):
