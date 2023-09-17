@@ -38,21 +38,21 @@ To get started with WanderGuide, follow these steps:
    ```
    cd WanderGuide
    ```
-4. Install the required dependencies using pipenv:
+3. Install the required dependencies using pipenv:
    ```
    pipenv install
    ```
-6. Activate the virtual environment:
+4. Activate the virtual environment:
    ```
    pipenv shell
    ```
-8. Modify the database connection configurations in:
+5. Modify the database connection configurations in:
    `flask_app/config/mysqlconnection.py`
-9. Start WanderGuide by running the following command:
+6. Start WanderGuide by running the following command:
      ```
      python3 server.py
      ```
-10. Open a web browser and visit `http://localhost:5001` to view the running app. 
+7. Open a web browser and visit `http://localhost:5001` to view the running app. 
 
 
 
