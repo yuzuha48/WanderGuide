@@ -225,7 +225,7 @@ function placeMarker(location, map) {
     });
 }
 
-function initMapView() {
+async function initMapView() {
     let city = document.getElementById("city").textContent;
     let geocoder = new google.maps.Geocoder();
 
