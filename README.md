@@ -10,6 +10,12 @@ Users can:
 - 👀 view how many people saved the itineraries
 - ✏️ edit & delete itineraries they created
 
+In this project I:
+- Utilized Python & MySQL for back-end features including CRUD of itineraries, users, and users’ saved itineraries
+- Employed Flask and JavaScript to enhance user experience including validation error messages, adding days onto an itinerary, and saving other users’ itineraries
+- Implemented a call to the Google Maps API to allow users to pin locations in their itineraries
+- Created a responsive front-end design using HTML, CSS, and Bootstrap
+
 <img width="1438" alt="explore_page" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/5ca52935-0f49-4281-bf0b-dcfe8c3576fe">
 <img width="1439" alt="itinerary" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/107fe613-484e-47e7-9353-72ffb2c1c2cb">
 <img width="1429" alt="travel_w_itinerary" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/c7671df2-8421-40e1-aae2-27bccd794017">
