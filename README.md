@@ -18,7 +18,7 @@ In this project I:
 
 <img width="1438" alt="explore_page" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/5ca52935-0f49-4281-bf0b-dcfe8c3576fe">
 <img width="1439" alt="itinerary" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/107fe613-484e-47e7-9353-72ffb2c1c2cb">
-<img width="1429" alt="travel_w_itinerary" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/c7671df2-8421-40e1-aae2-27bccd794017">
+<img width="1439" alt="itinerary_w_map" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/7569cb85-7ead-4e65-b38f-ad466180949c">
 <img width="1439" alt="my_itineraries" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/aa131645-01c4-4fbe-9ce8-d3fd472b6055">
 <img width="1439" alt="saved_itineraries" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/81552594-0763-46d0-8a81-eb61295a91ad">
 
