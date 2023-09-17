@@ -2,7 +2,7 @@ from flask_app import app
 from flask_app.models import day
 from flask_app.models import trip
 from flask_app.models import user
-from flask import render_template, redirect, request, session, flash, jsonify
+from flask import render_template, redirect, request, session, jsonify
 import os
 
 @app.route('/add_days/<int:trip_id>')

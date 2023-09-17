@@ -1,7 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models import trip 
-from flask import flash
-import base64
 
 class Day:
     DB = "trips_schema"
@@ -32,7 +30,6 @@ class Day:
                     "length_of_stay": row["length_of_stay"],
                     "cover_photo": row["cover_photo"],
                     "itinerary_description": row["itinerary_description"],
-                    # "interests": row["interests"],
                     "created_at": row['trips.created_at'],
                     "updated_at": row['trips.updated_at']
                 }

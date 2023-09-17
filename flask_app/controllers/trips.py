@@ -1,7 +1,7 @@
 from flask_app import app 
 from flask_app.models import trip
 from flask_app.models import user
-from flask import render_template, redirect, request, session, flash, jsonify, send_from_directory
+from flask import render_template, redirect, request, session, jsonify, send_from_directory
 import os
 
 @app.route('/explore') 

@@ -114,14 +114,6 @@ body {
     border-radius: var(--bs-card-inner-border-radius);
 }
 
-/* .interests {
-    background-color: coral;
-    color: white;
-    padding: 5px 10px;
-    width: fit-content;
-    border-radius: 3px;
-} */
-
 .card .btn {
     background-color: mediumseagreen;
     border: 1px solid mediumseagreen;

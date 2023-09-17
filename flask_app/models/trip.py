@@ -3,7 +3,6 @@ from flask_app import app
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models import user 
 from flask_app.models import day 
-import base64
 import uuid
 import os
 
@@ -16,7 +15,6 @@ class Trip:
         self.length_of_stay = data["length_of_stay"]
         self.cover_photo = data["cover_photo"]
         self.itinerary_description = data["itinerary_description"]
-        # self.interests = data["interests"]
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
         self.user = None
@@ -97,7 +95,6 @@ class Trip:
             "length_of_stay": trip_data["length_of_stay"],
             "cover_photo": unique_filename,
             "itinerary_description": trip_data["itinerary_description"],
-            # "interests": trip_data["interests"],
             "users_id": user_id
         }
         query = """
@@ -118,9 +115,6 @@ class Trip:
         if not cover_photo:
             flash("Itinerary must have a cover photo.", "create_trip")
             is_valid = False
-        # if data["interests"] == "Choose...":
-        #     flash("Please select at lease one interest tag.", "create_trip")
-        #     is_valid = False 
         return is_valid
 
     @classmethod 
@@ -146,8 +140,7 @@ class Trip:
             "city": trip_data["city"],
             "length_of_stay": trip_data["length_of_stay"],
             "cover_photo": unique_filename,
-            "itinerary_description": trip_data["itinerary_description"],
-            # "interests": trip_data["interests"]
+            "itinerary_description": trip_data["itinerary_description"]
         }
         query = """
                 UPDATE trips
