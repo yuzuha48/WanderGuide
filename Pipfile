@@ -10,6 +10,7 @@ flask-bcrypt = "*"
 python-dotenv = "*"
 requests = "*"
 colorama = "*"
+shell = "*"
 
 [dev-packages]
 
