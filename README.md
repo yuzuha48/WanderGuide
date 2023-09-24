@@ -4,7 +4,7 @@ Since I love traveling, I decided to create a travel itinerary sharing social me
 
 Users can:
 - 🔍 search for itineraries based on location
-- ➕ add as many days to their itineraries as they wish
+- ➕ create an itinerary and add as many days to their itineraries as they wish
 - 📍 pin locations on Google Maps in their itineraries
 - ♥️ save other users' itineraries
 - 👀 view how many people saved the itineraries
