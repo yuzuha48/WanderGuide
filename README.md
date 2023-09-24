@@ -12,7 +12,7 @@ Users can:
 
 In this project I:
 - Utilized Python & MySQL for back-end features including CRUD of itineraries, users, and users’ saved itineraries
-- Employed Flask and JavaScript to enhance user experience by including validation error messages and allowing users to add days onto an itinerary as well as save other users’ itineraries
+- Employed Flask and JavaScript to enhance user experience by implementing validation error messages and enabling users to add days onto an itinerary and save other users’ itineraries
 - Implemented a call to the Google Maps API to allow users to pin locations in their itineraries
 - Created a responsive front-end design using HTML, CSS, and Bootstrap
   
