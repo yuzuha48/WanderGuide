@@ -23,6 +23,8 @@ In this project I:
 <img width="1439" alt="itinerary_w_map" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/7569cb85-7ead-4e65-b38f-ad466180949c">
 <img width="1439" alt="my_itineraries" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/aa131645-01c4-4fbe-9ce8-d3fd472b6055">
 <img width="1439" alt="saved_itineraries" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/81552594-0763-46d0-8a81-eb61295a91ad">
+<img width="1440" alt="create_itinerary_1" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/f12aead3-638a-4b31-9445-d17dd4cef31d">
+<img width="1439" alt="create_itinerary_2" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/7b63fe13-4a20-4d8e-8847-3550c609ebb7">
 
 ## Prerequisites
 
