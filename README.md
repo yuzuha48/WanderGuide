@@ -19,8 +19,8 @@ In this project I:
 <img width="1440" alt="login" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/8523ac36-61db-4e0c-a7bc-9e379d3c31f4">
 <img width="1440" alt="register" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/2fdbadca-883e-4467-bd08-0bbcff855968">
 <img width="1438" alt="explore_page" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/5ca52935-0f49-4281-bf0b-dcfe8c3576fe">
-<img width="1439" alt="my_itineraries" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/aa131645-01c4-4fbe-9ce8-d3fd472b6055">
 <img width="1439" alt="saved_itineraries" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/81552594-0763-46d0-8a81-eb61295a91ad">
+<img width="1439" alt="my_itineraries" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/aa131645-01c4-4fbe-9ce8-d3fd472b6055">
 <img width="1439" alt="itinerary" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/107fe613-484e-47e7-9353-72ffb2c1c2cb">
 <img width="1439" alt="itinerary_w_map" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/7569cb85-7ead-4e65-b38f-ad466180949c">
 <img width="1439" alt="create_itinerary" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/2f1b38be-6323-4753-8435-b9e535c33385">
