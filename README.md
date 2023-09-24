@@ -1,6 +1,6 @@
 # WanderGuide ✈️
 
-Since I love traveling, I decided to create a travel itinerary sharing social media platform where people can create and view itineraries for various places! 
+Driven by my love of travel, I decided to create a social media platform dedicated to sharing travel itineraries. Here, individuals can both craft and explore captivating itineraries for diverse destinations.
 
 Users can:
 - 🔍 search for itineraries based on location
