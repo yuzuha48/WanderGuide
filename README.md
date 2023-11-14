@@ -11,7 +11,7 @@ Users can:
 - ✏️ edit & delete itineraries they created
 
 In this project I:
-- Crafted user-friendly design with Flask and JavaScript, enabling itinerary customization through form-adding capabilities and allowing users to save others’ itineraries with a “like” button 
+- Crafted user-friendly design with Flask and JavaScript, enabling itinerary customization through form-adding capabilities and allowing users to bookmark others’ itineraries
 - Developed a robust data management system for users, itineraries, and saved itineraries using Python and MySQL
 - Implemented a call to the Google Maps API for location pinning functionality   
 Constructed a responsive user interface using HTML, CSS, and Bootstrap
