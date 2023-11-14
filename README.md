@@ -13,8 +13,8 @@ Users can:
 In this project I:
 - Crafted user-friendly design with Flask and JavaScript, enabling itinerary customization through form-adding capabilities and allowing users to bookmark others’ itineraries
 - Developed a robust data management system for users, itineraries, and saved itineraries using Python and MySQL
-- Implemented a call to the Google Maps API for location pinning functionality   
-Constructed a responsive user interface using HTML, CSS, and Bootstrap
+- Integrated Google Maps API to add support for location pinning functionality   
+- Constructed a responsive user interface using HTML, CSS, and Bootstrap
   
 <img width="1440" alt="login" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/8523ac36-61db-4e0c-a7bc-9e379d3c31f4">
 <img width="1440" alt="register" src="https://github.com/yuzuha48/WanderGuide/assets/106595505/2fdbadca-883e-4467-bd08-0bbcff855968">
